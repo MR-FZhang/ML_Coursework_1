@@ -1,0 +1,19 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+venv/
+env/
+ENV/
+**/site-packages/
+
+# IDE and OS files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Note: part2_model.pickle MUST be committed by students for evaluation
