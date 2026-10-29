@@ -46,7 +46,7 @@ class Regressor:
         layers = []
         n_in = self.input_size
         for n_out in hidden_layers:
-            layers += [nn.Linear(n_in, n_out), nn.ReLU()]
+            layers += [nn.Linear(n_in, n_out), nn.ReLU() ]
             n_in = n_out
         layers.append(nn.Linear(n_in, self.output_size))
         self.model = nn.Sequential(*layers)
@@ -164,7 +164,7 @@ class Regressor:
         #######################################################################
         #                       ** START OF YOUR CODE **
         #######################################################################
-
+        torch.set_num_threads(1)
         X, Y = self._preprocessor(x, y = y, training = True) # Do not forget
         optimiser = torch.optim.Adam(self.model.parameters(), lr = self.learning_rate)
         loss_fn = nn.MSELoss()
@@ -296,7 +296,7 @@ def main():
     # Error
     print(f"\nTrain RMSE: {regressor.evaluate(x_train, y_train)}")
     print(f"Validation RMSE: {regressor.evaluate(x_val, y_val)}\n")
-
+    
 
 if __name__ == "__main__":
     # Run main() via an import so the pickle records the class as
